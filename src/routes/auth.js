@@ -60,11 +60,9 @@ const generateTokens = (user) => {
  */
 router.post(
   "/register",
-  [
-    body("name").notEmpty().withMessage("Ad zorunludur"),
-    body("email").isEmail().withMessage("Gecerli bir email giriniz"),
-    body("password").isLength({ min: 6 }).withMessage("Sifre en az 6 karakter olmali"),
-  ],
+  body("name").notEmpty().withMessage("Ad zorunludur"),
+  body("email").isEmail().withMessage("Gecerli bir email giriniz"),
+  body("password").isLength({ min: 6 }).withMessage("Sifre en az 6 karakter olmali"),
   validate,
   async (req, res, next) => {
     try {
@@ -117,10 +115,8 @@ router.post(
  */
 router.post(
   "/login",
-  [
-    body("email").isEmail().withMessage("Gecerli bir email giriniz"),
-    body("password").notEmpty().withMessage("Sifre zorunludur"),
-  ],
+  body("email").isEmail().withMessage("Gecerli bir email giriniz"),
+  body("password").notEmpty().withMessage("Sifre zorunludur"),
   validate,
   async (req, res, next) => {
     try {

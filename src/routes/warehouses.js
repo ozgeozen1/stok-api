@@ -66,7 +66,7 @@ router.get("/", auth, async (req, res, next) => {
 router.post(
   "/",
   auth,
-  [body("name").notEmpty().withMessage("Depo adi zorunludur")],
+  body("name").notEmpty().withMessage("Depo adi zorunludur"),
   validate,
   async (req, res, next) => {
     try {
@@ -114,7 +114,7 @@ router.post(
 router.put(
   "/:id",
   auth,
-  [param("id").isMongoId().withMessage("Gecersiz ID")],
+  param("id").isMongoId().withMessage("Gecersiz ID"),
   validate,
   async (req, res, next) => {
     try {
@@ -155,7 +155,7 @@ router.put(
 router.delete(
   "/:id",
   auth,
-  [param("id").isMongoId().withMessage("Gecersiz ID")],
+  param("id").isMongoId().withMessage("Gecersiz ID"),
   validate,
   async (req, res, next) => {
     try {

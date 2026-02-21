@@ -149,7 +149,7 @@ router.get("/low-stock", auth, async (req, res, next) => {
 router.get(
   "/:id",
   auth,
-  [param("id").isMongoId().withMessage("Gecersiz ID")],
+  param("id").isMongoId().withMessage("Gecersiz ID"),
   validate,
   async (req, res, next) => {
     try {
@@ -220,11 +220,9 @@ router.get(
 router.post(
   "/",
   auth,
-  [
-    body("name").notEmpty().withMessage("Urun adi zorunludur"),
-    body("sku").notEmpty().withMessage("SKU zorunludur"),
-    body("price").isFloat({ min: 0 }).withMessage("Fiyat 0 veya daha buyuk olmali"),
-  ],
+  body("name").notEmpty().withMessage("Urun adi zorunludur"),
+  body("sku").notEmpty().withMessage("SKU zorunludur"),
+  body("price").isFloat({ min: 0 }).withMessage("Fiyat 0 veya daha buyuk olmali"),
   validate,
   async (req, res, next) => {
     try {
@@ -285,7 +283,7 @@ router.post(
 router.put(
   "/:id",
   auth,
-  [param("id").isMongoId().withMessage("Gecersiz ID")],
+  param("id").isMongoId().withMessage("Gecersiz ID"),
   validate,
   async (req, res, next) => {
     try {
@@ -326,7 +324,7 @@ router.put(
 router.delete(
   "/:id",
   auth,
-  [param("id").isMongoId().withMessage("Gecersiz ID")],
+  param("id").isMongoId().withMessage("Gecersiz ID"),
   validate,
   async (req, res, next) => {
     try {
